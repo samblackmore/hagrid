@@ -12,7 +12,6 @@ class Grid {
     private int h;
     private int cellW;
     private int cellH;
-    private int smallestSide;
 
     Grid(PApplet app, int x, int y, int width, int height) {
         this.app = app;
@@ -20,7 +19,6 @@ class Grid {
         this.y = y;
         this.w = width;
         this.h = height;
-        smallestSide = Math.min(width, height);
         cellW = width / cols;
         cellH = height / rows;
         // Make cells always be square

@@ -4,17 +4,17 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 
-    Grid mainGrid;
+    Container container;
 
     public void settings() {
         fullScreen();
     }
 
     public void setup() {
-        mainGrid = new Grid(this, 100, 100, 100, 200);
+        container = new Container(this, 100, 100, 100, 200);
     }
 
     public void draw() {
-        mainGrid.display();
+        container.display();
     }
 }
