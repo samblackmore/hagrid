@@ -4,17 +4,25 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 
-    Container container;
+    LevelEditor levelEditor;
 
     public void settings() {
         fullScreen();
     }
 
     public void setup() {
-        container = new Container(this, 100, 100, 100, 200);
+        levelEditor = new LevelEditor(this, 0, 0, width, height);
     }
 
     public void draw() {
-        container.display();
+        levelEditor.display();
+    }
+
+    public void mouseReleased() {
+        levelEditor.mouseClicked();
+    }
+
+    public void mouseClicked() {
+        levelEditor.mouseClicked();
     }
 }
