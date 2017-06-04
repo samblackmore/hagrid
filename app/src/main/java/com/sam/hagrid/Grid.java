@@ -59,4 +59,12 @@ class Grid {
         targetWidth = width;
         targetHeight = height;
     }
+
+    int getWidth() {
+        return w;
+    }
+
+    int getHeight() {
+        return h;
+    }
 }

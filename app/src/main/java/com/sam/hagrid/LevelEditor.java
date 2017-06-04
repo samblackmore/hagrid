@@ -2,25 +2,31 @@ package com.sam.hagrid;
 
 import processing.core.PApplet;
 
-public class LevelEditor extends Container {
+class LevelEditor extends Container {
 
-    boolean isSelected = true;
-    int colorDefault;
-    int colorSelected;
+    private boolean isSelected = true;
+    private int colorDefault;
+    private int colorSelected;
 
     LevelEditor(PApplet app, int x, int y, int width, int height) {
         super(app, x, y, width, height);
+        colorDefault = app.color(255);
+        colorSelected = app.color(200);
     }
 
     void mouseClicked() {
         isSelected = !isSelected;
         if (isSelected) {
-            getGrid().setSize(x + margin, y + margin, w - 2 * margin, h - 2 * margin);
-            setColor(app.color(200));
+            int centeredX = x + margin + (w / 2) - (grid.getWidth() / 2);
+            int centeredY = y + margin + (h / 2) - (grid.getHeight() / 2);
+            getGrid().setSize(centeredX, centeredY, w - 2 * margin, h - 2 * margin);
+            setColor(colorSelected);
         }
         else {
-            getGrid().setSize(x, y, w, h);
-            setColor(app.color(255));
+            int centeredX = (h > w ? 0 : (w - h) / 2);
+            int centeredY = (h > w ? (h - w) / 2 : 0);
+            getGrid().setSize(centeredX, centeredY, w, h);
+            setColor(colorDefault);
         }
     }
 
